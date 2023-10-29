@@ -61,10 +61,34 @@ function home_url( $path = '' ){
  */
 function current_page( $url_path ){
     $url = $_SERVER['REQUEST_URI'];
-    if( $url_path == substr( $_SERVER['REQUEST_URI'],6 ) ){
+    if( $url_path == substr( $_SERVER['REQUEST_URI'],path_character_count() ) ){
         $active = 'active';
     }else{
         $active = '';
     }
     echo $active;
+}
+
+
+/**
+ * get the root directory character count
+ *
+ * @param [type] $count
+ * @return $count
+ */
+function path_character_count( $count = '' ){
+    // get root directory
+    $root_dir = $_SERVER['DOCUMENT_ROOT'];
+
+    // Get the current script's path
+    $current_script_path = $_SERVER['SCRIPT_FILENAME'];
+    
+    // Determine the root folder by removing the document root from the script path
+    $root_folder     = str_replace($root_dir, '', dirname($current_script_path));
+    $count_character = strlen( $root_folder );
+    $characters      = $count_character + 1;
+    $count           = intval( $characters );
+
+    return $count;
+
 }
