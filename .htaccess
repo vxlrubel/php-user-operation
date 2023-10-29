@@ -1,0 +1,15 @@
+RewriteEngine On
+
+# Rewrite "example.com/form" to "example.com/form.php"
+
+# rewrite the rules for form page
+RewriteRule ^form$ form.php [L]
+
+# rewrite the rules for register page.
+RewriteRule ^register$ register.php [L]
+
+# rewrite the rules for login page
+RewriteRule ^login$ login.php [L]
+
+# rewrite the rules for update page
+RewriteRule ^update$ update.php [L]
