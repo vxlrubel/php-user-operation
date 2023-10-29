@@ -1,13 +1,14 @@
 <?php
 
-$servername = "localhost";
-$username = "root";
-$password = "";
+$hostname = 'localhost';
+$dbname   = 'app';
+$username = 'root';
+$password = '';
 
 $prefix = 'app_';
 
 try {
-  $pdo = new PDO("mysql:host=$servername;dbname=app", $username, $password);
+  $pdo = new PDO("mysql:host=$hostname;dbname=$dbname", $username, $password);
   // set the PDO error mode to exception
   $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   
