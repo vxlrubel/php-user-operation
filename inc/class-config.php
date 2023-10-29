@@ -37,4 +37,4 @@ try {
  */
 require_once __DIR__ . '/core-template.php';
 
-require_once __DIR__ . '/class-submition.php';
+require_once __DIR__ . '/class-user.php';
