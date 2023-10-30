@@ -36,14 +36,19 @@ require_once __DIR__ . '/header.php';
                 <tbody>
                     
                     <?php
-            
+
+                        $current_page  = isset($_GET['page']) ? $_GET['page'] : 1;
+                        $per_page_item = 5;
+                        $start_from = ( $current_page - 1 ) * $per_page_item;
                         $table_name = "{$prefix}users";
-                        $table = $pdo->query("SELECT id FROM $table_name ORDER BY 'full_name' DESC");
+                        $table = $pdo->query("SELECT id FROM $table_name");
 
                         if( $table->rowCount() > 0 ){
                             
-                            $sql = "SELECT id, full_name, email_address, phone_number, user_address FROM $table_name";
+                            $sql = "SELECT id, full_name, email_address, phone_number, user_address FROM $table_name ORDER BY id DESC LIMIT :start, :items";
                             $statment = $pdo->prepare( $sql );
+                            $statment->bindParam(':start', $start_from, PDO::PARAM_INT );
+                            $statment->bindParam(':items', $per_page_item, PDO::PARAM_INT );
                             $statment->execute();
 
                             // $results = $statment->fetch(PDO::FETCH_ASSOC);
@@ -77,8 +82,18 @@ require_once __DIR__ . '/header.php';
                     </tr>
                 </tfoot>
             </table>
+
+            <?php
+
+                $total_record = $pdo->query("SELECT COUNT(*) FROM $table_name")->fetchColumn();
+                $total_page = ceil( $total_record / $per_page_item );
+
+                $user->pagination( $current_page, $total_page );
+
+            ?>
+
         </div>
     </div>
 </section>
 
-<?php require_once __DIR__ . '/footer.php'; ?>
+<?php require_once __DIR__ . '/footer.php';

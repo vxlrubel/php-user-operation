@@ -136,5 +136,59 @@ final class User {
         exit;
 
     }
+
+
+    /**
+     * create pagination
+     *
+     * @param [type] $current_page
+     * @param [type] $total_page
+     * @return void
+     */
+    public function pagination( $current_page, $total_page ) {
+
+        self::paginate_before();
+
+        // create previous page link
+        if( $current_page > 1 ){
+            printf( '<li><a href="?page=%d">&lt;</a></li>', $current_page -1 );
+        }
+        for ($i=1; $i <= $total_page ; $i++) { 
+            if( $i == $current_page ){
+                printf( '<li class="active"><a href="?page=%d">%d</a></li>', $i, $i );
+            }else{
+                printf( '<li><a href="?page=%d">%d</a></li>', $i, $i );
+            }
+        }
+
+        // create next page link
+        if( $current_page < $total_page ){
+            printf( '<li><a href="?page=%d">&gt;</a></li>', $current_page + 1 );
+        }
+        
+        self::paginate_after();
+        
+    }
+
+
+    /**
+     * paginate before elements
+     *
+     * @return void
+     */
+    public static function paginate_before(){
+        echo "<nav class=\"pagination\"><ul>\n";
+    }
+
+    /**
+     * paginate after elements
+     *
+     * @return void
+     */
+    public static function paginate_after(){
+        echo "</ul>\n</nav>\n";
+    }
     
 }
+
+$user = new User;

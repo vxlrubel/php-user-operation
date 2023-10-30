@@ -1,5 +1,3 @@
-
-<?php session_start(); ?>
 <footer class="clearfix">
     <div class="container">
         <div class="copyright-text">

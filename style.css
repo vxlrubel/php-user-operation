@@ -13,11 +13,13 @@
     --app-text-left: left;
     --app-line-height-default: 28px;
     --app-padding-x: 15px;
+    --app-font-size-small: 90%;
 }
 *,*::before,*::after{
     box-sizing: border-box !important;
     margin: 0;
     font-family: sans-serif;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border 0.15s ease-in-out;
 }
 body{
     background-color: var(--app-color-white);
@@ -395,3 +397,47 @@ footer .container a:hover{
   width: 20px;
   height: 20px;
 }
+.forget-password{
+  text-decoration: none;
+  color: var(--app-color-dark);
+  font-size: var(--app-font-size-small);
+}
+.forget-password:hover{
+  color: var(--app-color-theme-deep);
+}
+
+/*************************************
+ ************ Pagination *************
+ *************************************/
+
+ .pagination{
+    display: flex;
+    margin: 15px 0;
+ }
+
+ .pagination ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+ }
+
+ .pagination ul li:not(:last-child){
+    margin-right: 5px;
+ }
+
+ .pagination ul li a{
+    display: inline-flex;
+    height: 30px;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--app-color-dark);
+    text-decoration: none;
+    color: var(--app-color-dark);
+ }
+.pagination ul li.active a,
+.pagination ul li a:hover{
+    background-color: var(--app-color-theme-deep);
+    border-color: var(--app-color-theme-deep);
+    color: var(--app-color-white);
+ }

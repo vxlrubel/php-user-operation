@@ -90,5 +90,5 @@ function path_character_count( $count = '' ){
     $count           = intval( $characters );
 
     return $count;
-
+    
 }

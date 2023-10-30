@@ -28,6 +28,7 @@ require_once __DIR__ . '/header.php';
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me.</label>
                     <input type="submit" value="Login Now">
+                    <a href="javascript:void(0)" class="forget-password">Forget Password</a>
                 </div>
 
             </form>
