@@ -23,4 +23,6 @@
 ### Login Form
 01. 
 
-Next comming soon...
+### Pagination
+
+01. Develop pagination inside the home page
