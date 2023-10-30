@@ -16,18 +16,18 @@ require_once __DIR__ . '/header.php';
 
                 <div class="login-field">
                     <label for="username">Username</label>
-                    <input type="text" id="username">
+                    <input type="text" id="username" class="border-radius-small">
                 </div>
 
                 <div class="login-field">
                     <label for="password">Password</label>
-                    <input type="password" id="password">
+                    <input type="password" id="password" class="border-radius-small">
                 </div>
 
                 <div class="login-field">
                     <input type="checkbox" id="remember">
                     <label for="remember">Remember me.</label>
-                    <input type="submit" value="Login Now">
+                    <input type="submit" value="Login Now" class="border-radius-small">
                     <a href="javascript:void(0)" class="forget-password">Forget Password</a>
                 </div>
 

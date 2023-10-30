@@ -5,7 +5,7 @@ session_start();
 
 require_once __DIR__ . '/inc/class-config.php'; 
 
-$_SESSION['username'] = 'Rubel';
+$active_page = 'home';
 
 ?>
 

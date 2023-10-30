@@ -17,9 +17,9 @@ require_once __DIR__ . '/header.php';
                 <thead>
                     <tr align="right">
                         <td colspan="6">
-                            <form action="" class="search-form">
-                                <input type="search" name="search-result">
-                                <input type="submit" value="Search" name="get-search-result">
+                            <form action="" class="search-form border-radius-small">
+                                <input type="search" name="search-result" class="border-radius-left-small">
+                                <input type="submit" value="Search" name="get-search-result" class="border-radius-right-small">
                             </form>
                         </td>
                     </tr>
@@ -52,11 +52,13 @@ require_once __DIR__ . '/header.php';
                             $statment->execute();
 
                             // $results = $statment->fetch(PDO::FETCH_ASSOC);
-                            $count_value = 1;
+                            $serial = $start_from + 1;
+
                             while ($results = $statment->fetch(PDO::FETCH_ASSOC)) {
+                                
                                 printf(
                                     '<tr><td class="text-center">%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td class="action-link-parent"><a href="%s" class="action-link" onclick="confirm(\'Are you sure?\');"><img src="./assets/img/delete.png" /></a><a href="%s" class="action-link"><img src="./assets/img/edit.png" /></a></td></tr>',
-                                    $count_value ++,
+                                    $serial ++,
                                     $results['full_name'],
                                     $results['email_address'],
                                     $results['phone_number'],

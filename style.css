@@ -1,7 +1,8 @@
 
 :root{
-    --app-color-theme: #9575DE;
-    --app-color-theme-deep: #6554AF;
+    --app-color-theme: rgb(149, 117, 222);
+    --app-color-theme-deep: rgb(101, 84, 175);
+    --app-color-theme-alpha: rgba(149, 117, 222, 0.1);
     --app-color-white: #fff;
     --app-color-light: #f8f9fa;
     --app-color-dark: #444;
@@ -10,10 +11,12 @@
     --app-color-red-alpha: rgba(238, 8, 105,0.1);
     --app-color-success: rgb(0, 128, 0);
     --app-color-success-alpha: rgba(0, 128, 0,0.1);
+    --app-color-table-row: #F5F7F8;
     --app-text-left: left;
     --app-line-height-default: 28px;
     --app-padding-x: 15px;
     --app-font-size-small: 90%;
+    --app-border-small: 4px;
 }
 *,*::before,*::after{
     box-sizing: border-box !important;
@@ -31,6 +34,19 @@ body{
 }
 input[type="text"],input[type="password"],input[type="submit"],input[type="email"],input[type="number"],button{
     line-height: inherit;
+}
+
+.border-radius-small{
+    border-radius: var(--app-border-small) !important;
+}
+
+.border-radius-left-small{
+    border-top-left-radius: var(--app-border-small) !important;
+    border-bottom-left-radius: var(--app-border-small) !important;
+}
+.border-radius-right-small{
+    border-top-right-radius: var(--app-border-small) !important;
+    border-bottom-right-radius: var(--app-border-small) !important;
 }
 
 .clearfix::after{
@@ -117,7 +133,10 @@ input[type="text"],input[type="password"],input[type="submit"],input[type="email
     border-collapse: collapse;
 }
 .table tbody tr:nth-child(2n+1){
-  background-color: #dee;
+  background-color: var(--app-color-table-row);
+}
+.table tbody tr:hover{
+  background-color: var(--app-color-theme-alpha);
 }
 /* Style the thumb (the draggable part of the scrollbar) */
 .table-parent::-webkit-scrollbar-thumb {
@@ -433,7 +452,9 @@ footer .container a:hover{
     align-items: center;
     border: 1px solid var(--app-color-dark);
     text-decoration: none;
+    overflow: hidden;
     color: var(--app-color-dark);
+    border-radius: var(--app-border-small);
  }
 .pagination ul li.active a,
 .pagination ul li a:hover{
