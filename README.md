@@ -26,3 +26,5 @@
 ### Pagination
 
 01. Develop pagination inside the home page
+
+02. (continue)[https://github.com/vxlrubel/php-blog-site]
